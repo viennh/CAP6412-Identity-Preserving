@@ -1,0 +1,26 @@
+# Core ML / diffusion
+torch>=2.1.0
+torchvision>=0.16.0
+diffusers>=0.27.0
+transformers>=4.38.0
+accelerate>=0.27.0
+
+# IP-Adapter FaceID
+ip-adapter
+
+# Face detection / recognition
+insightface>=0.7.3
+onnxruntime-gpu>=1.17.0
+
+# Person segmentation
+ultralytics>=8.0.0       # YOLO
+git+https://github.com/facebookresearch/segment-anything-2.git
+
+# Image processing
+opencv-python>=4.9.0
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# Evaluation metrics
+piq>=0.8.0               # BRISQUE
+# CLIP is loaded via transformers (openai/clip-vit-large-patch14)
