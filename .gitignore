@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.python-version
+venv/
+env/
+.id_diffusion_env/
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+.python-version
+
+# Virtual environments
+id_diffusion_env/
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Data and model artifacts
+output/
+datasets/
+check_wesi.csv
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.h5
+*.onnx
+
+
+# Diffusers cache
+~/.cache/huggingface/
+~/.cache/torch/
+
+# Logs
+*.log
+logs/
+
+# MacOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+

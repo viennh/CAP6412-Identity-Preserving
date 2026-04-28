@@ -1,7 +1,7 @@
-# Core ML / diffusion
+# Core ML / diffusion (CPU versions)
 torch>=2.1.0
 torchvision>=0.16.0
-diffusers>=0.25.0,<0.27.0
+diffusers>=0.27.0
 transformers>=4.38.0
 accelerate>=0.27.0
 
@@ -11,11 +11,13 @@ einops>=0.6.1
 
 # Face detection / recognition
 insightface>=0.7.3
-onnxruntime-gpu>=1.17.0
+onnxruntime>=1.17.0
 
 # Person segmentation
 ultralytics>=8.0.0       # YOLO
-git+https://github.com/facebookresearch/segment-anything-2.git
+# SAM2 must be installed manually due to dependency conflicts:
+# git clone https://github.com/facebookresearch/segment-anything-2.git
+# cd segment-anything-2 && pip install -e .
 
 # Image processing
 opencv-python>=4.9.0
