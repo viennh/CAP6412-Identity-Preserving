@@ -52,9 +52,11 @@ project/
 
 ---
 
-## Requirements
+## Setup
 
-### Python packages
+A CUDA-capable GPU with at least **16 GB VRAM** is recommended. The pipeline loads the SDXL UNet in `float16` to reduce memory usage. Pick either the Python or UV setup instructions below.
+
+### a. Python
 
 ```bash
 pip install torch torchvision
@@ -72,20 +74,35 @@ git clone https://github.com/facebookresearch/segment-anything-2.git
 cd segment-anything-2 && pip install -e .
 ```
 
-### Model checkpoints
+### b. UV
+
+```powershell
+uv venv .venv --python 3.11
+.\.venv\Scripts\activate
+uv pip install -r requirements.txt
+uv pip install "transformers<5" "huggingface-hub<0.26"
+uv pip install --reinstall --index-url https://download.pytorch.org/whl/cu128 torch torchvision
+uv pip install --reinstall --no-deps git+https://github.com/tencent-ailab/IP-Adapter.git
+```
+
+On Ubuntu/Linux, activate the same UV environment with:
+
+```bash
+source .venv/bin/activate
+```
+
+For CPU-only use with UV, install `requirements-cpu.txt` instead of `requirements.txt` and skip the CUDA PyTorch reinstall command.
+
+### Model Checkpoints
 
 | Model | Source |
 |---|---|
 | SDXL Inpainting | Auto-downloaded via `diffusers` |
 | RealVisXL V3.0 | Auto-downloaded via `diffusers` (HuggingFace: `SG161222/RealVisXL_V3.0`) |
-| IP-Adapter FaceID SDXL | Download `ip-adapter-faceid_sdxl.bin` from [h94/IP-Adapter-FaceID](https://huggingface.co/h94/IP-Adapter-FaceID) |
-| SAM2 (hiera tiny) | Download `sam2.1_hiera_tiny.pt` from the [SAM2 releases](https://github.com/facebookresearch/segment-anything-2/releases) |
+| IP-Adapter FaceID SDXL | Download [`ip-adapter-faceid_sdxl.bin`](https://huggingface.co/h94/IP-Adapter-FaceID/blob/main/ip-adapter-faceid_sdxl.bin) from [h94/IP-Adapter-FaceID](https://huggingface.co/h94/IP-Adapter-FaceID) |
+| SAM2 (hiera tiny) | Download [`sam2.1_hiera_tiny.pt`](https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_tiny.pt) from [SAM2](https://github.com/facebookresearch/sam2) |
 | InsightFace buffalo_l | Auto-downloaded on first run |
-| YOLO | Place `yolo26n.pt` in the project root |
-
-### Hardware
-
-A CUDA-capable GPU with at least **16 GB VRAM** is recommended. The pipeline loads the SDXL UNet in `float16` to reduce memory usage.
+| YOLO | Download [`yolo26n.pt`](https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt) from [Ultralytics Assets](https://github.com/ultralytics/assets/releases/) and place it in the project root |
 
 ---
 
